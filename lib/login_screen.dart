@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:restaurant/Cart_screen.dart';
+import 'package:restaurant/Order.dart';
+import 'package:restaurant/history.dart';
+import 'package:restaurant/internet_message.dart';
 import 'package:restaurant/menu_food.dart';
+import 'package:restaurant/search_screen.dart';
 
 class login extends StatefulWidget {
   const login({super.key});
@@ -16,23 +21,26 @@ class _loginState extends State<login> {
         body: Column(
           children: [
             Container(
-              height: 200,
+              height: 300,
               width: double.infinity,
-              color: Colors.white,
+              color: Color(0xFFEEEEEE),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
+               crossAxisAlignment: CrossAxisAlignment.center,
+               mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    decoration:  const BoxDecoration(
-                      color: Color(500),
-                      image: DecorationImage(
-                        image: AssetImage('assets/photo/images.png'),
-                        fit: BoxFit.cover),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 100),
+                    child: Container(
+                      width: 100,
+                      height:100,
+                      decoration:  const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/photo/images.png'),
+                          fit: BoxFit.cover),
+                      ),
+                      
+                      
                     ),
-                    width: 100,
-                    height: 100,
-                    
                   ),
                   Container(
                     margin:const EdgeInsets.all(10.0),
@@ -48,7 +56,7 @@ class _loginState extends State<login> {
                           onPressed: (){},
                           child: const Text('Sign-up'),
                         )
-
+            
                       ],
                     ),
                   ),
@@ -75,33 +83,51 @@ class _loginState extends State<login> {
                        ),
                     ),
             ),
-            TextButton(
-              onPressed: (){},
-              child:const Text(
-                'Forgot password?',
-                style: TextStyle(
-                  fontSize: 15,
-                  color: Colors.red),
+            Padding(
+              padding: const EdgeInsets.only(right: 200),
+              child: TextButton(
+                onPressed: (){},
+                child:const Text(
+                  'Forgot password?',
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.red),
+                ),
               ),
             ),
+            
             Padding(
-              padding: const EdgeInsets.all(8.20),
-              child: ElevatedButton(
-                onPressed: (){
+             padding: const EdgeInsets.only(top: 150),
+             child: Container(
+                alignment: Alignment.bottomCenter,
+                height: 60,
+                width: 300,
+                decoration: BoxDecoration(
+                  color: const Color(0xFFFA4A0C),
+                  borderRadius: BorderRadius.circular(50)
+                  ),
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: TextButton(
+                    onPressed: (){
                   Navigator.push(
                     context, 
-                    MaterialPageRoute(builder: (context) => const menu_food(),
+                    MaterialPageRoute(
+                      builder: (context) => 
+                      const history_screen()//menu screen chang//history
                ),
                );
-               },
-                child: const Text(
-                  'Login',
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.white),
-                    )
+               }, 
+                  child: const Text(
+                    'login',
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Color(0xFFF6F6F9)),
+                      )
+                      ),
                 ),
-            ),
+              ),
+           ),
           ],
         ),
     );

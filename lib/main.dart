@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: Colors.red,
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
@@ -75,19 +75,43 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.all(25),
+            height: 200,
+            width: 200,
             alignment: Alignment.center,
-            // ignore: sort_child_properties_last
-            child: TextButton(
-              onPressed:(){
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/photo/chef.png'),
+                fit: BoxFit.cover)
+            ),
+          ),
+           Padding(
+             padding: const EdgeInsets.only(top: 150),
+             child: Container(
+                alignment: Alignment.bottomCenter,
+                height: 60,
+                width: 300,
+                decoration: BoxDecoration(
+                  color: const Color(0xFFFFFFFF),
+                  borderRadius: BorderRadius.circular(50)
+                  ),
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: TextButton(
+                   onPressed:(){
                 Navigator.push(context, MaterialPageRoute(builder: (BuildContext context){
                  return const login();
                 }));
               }, 
-            child: const Text('Get Starteed',style: TextStyle(fontSize: 20,color: Colors.black),)),
-            color: Colors.white,
-          )
-          
+                  child: const Text(
+                    'Get Started',
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Color(0xFFFF460A)),
+                      )
+                      ),
+                ),
+              ),
+           ),
         ],
       ),
     );

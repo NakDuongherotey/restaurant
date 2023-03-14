@@ -1,6 +1,7 @@
 // ignore_for_file: camel_case_types
 
 import 'package:flutter/material.dart';
+import 'List_Product.dart';
 
 class menu_food extends StatefulWidget {
   const menu_food({super.key});
@@ -13,7 +14,7 @@ class _menu_foodState extends State<menu_food> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFEFEEEE),
+      backgroundColor: const Color(0xFFFFFFFF),
       body: Column(
         children: [
           Container(
@@ -52,6 +53,7 @@ class _menu_foodState extends State<menu_food> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
+              alignment: AlignmentDirectional.bottomStart,
               child: const Text(
                 'Delicious food for you',
                 style: TextStyle(
@@ -62,15 +64,14 @@ class _menu_foodState extends State<menu_food> {
                ),
             ),
           ),
-          const Padding(
+           Padding(
              padding: EdgeInsets.all(8.0),
              child: TextField(
               decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                focusColor: Color(0xFFEFEEEE),
-                icon: Icon(Icons.search,
-                  color: Color(0xFF000000),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(50),
                 ),
+                prefixIcon: Icon(Icons.search, color: Color(0xFF000000),),
                 hintText: 'Search',
               ),
                      ),
@@ -120,9 +121,110 @@ class _menu_foodState extends State<menu_food> {
                 ),
               ),
             ),
+          ),
+          Container(
+            width: double.infinity,
+            height: 300,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: List.generate(list.length, (index) => 
+                InkWell(
+                  onTap:() {
+                 
+                  },
+                    child: Column(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(top: 50),
+                          alignment: Alignment.topCenter,
+                          width: 150,
+                          height: 150,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                              fit: BoxFit.cover,
+                              image: AssetImage(list[index].image.toString()))
+                          ),
+                          
+                        ),
+                        Container(
+                            alignment: Alignment.center,
+                            //padding: const EdgeInsets.only(bottom: 15),
+                            height: 140,
+                            width: 140,
+                            color: Color(0xFFEFEEEE),
+                            child: Stack(
+                              children:[ 
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    padding: EdgeInsets.only(bottom: 40),
+                                    child: Text(list[index].name.toString(),
+                                      style: const TextStyle( 
+                                        fontSize: 15,
+                                        color: Color(0xFF000000)
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  alignment: Alignment.center,
+                                  child: Text(list[index].id.toString(),
+                                    style: const TextStyle( 
+                                      fontSize: 10,
+                                      color: Color(0xFFFA4A0C),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                      ],
+                    ),
+                ),
+              ),
+            ),
+          ),
+          Container(
+            height: 100,
+            width: double.infinity,
+            alignment: Alignment.bottomCenter,
+            child: Row(
+              children: [
+                Expanded(
+                  child: IconButton(
+                    alignment:Alignment.center,
+                    onPressed: (){}, 
+                    icon: const Icon(Icons.home),
+                  ),
+                ),
+                Expanded(
+                  child: IconButton(
+                    alignment: Alignment.center,
+                    onPressed: (){},
+                    icon:const Icon(Icons.heart_broken),
+                  ),
+                ),
+                Expanded(
+                  child: IconButton(
+                    alignment: Alignment.center,
+                    onPressed: (){},
+                    icon:const Icon(Icons.person),
+                  ),
+                ),
+                Expanded(
+                  child: IconButton(
+                    alignment:Alignment.center,
+                    onPressed: (){},
+                    icon:const Icon(Icons.history),
+                  ),
+                ),
+              ],
+            ),
           )
         ],
-      ),
+      ), 
     );
   }
 }
