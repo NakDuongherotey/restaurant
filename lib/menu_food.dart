@@ -1,6 +1,7 @@
 // ignore_for_file: camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:restaurant/detile_food.dart';
 import 'List_Product.dart';
 
 class menu_food extends StatefulWidget {
@@ -14,7 +15,7 @@ class _menu_foodState extends State<menu_food> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFFFFFF),
+      backgroundColor: const Color(0xFFF2F2F2),
       body: Column(
         children: [
           Container(
@@ -76,36 +77,38 @@ class _menu_foodState extends State<menu_food> {
               ),
                      ),
            ),
-          Container(
-            width: double.infinity,
-            height: 50,
-            child: Row(
-              children:  [
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: TextButton(
-                    onPressed: (){}, 
-                    child: const Text('Foods')),
-                ),
-                 Padding(
-                   padding: const EdgeInsets.all(10.0),
-                   child: TextButton(
-                    onPressed: (){}, 
-                    child: const Text('Drirks')),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
+          Expanded(
+            child: Container(
+              width: double.infinity,
+              height: 50,
+              child: Row(
+                children:  [
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
                     child: TextButton(
                       onPressed: (){}, 
-                      child: const Text('Snaks')),
-                ),
+                      child: const Text('Foods')),
+                  ),
+                   Padding(
+                     padding: const EdgeInsets.all(10.0),
+                     child: TextButton(
+                      onPressed: (){}, 
+                      child: const Text('Drirks')),
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                       child: TextButton(
                         onPressed: (){}, 
-                        child: const Text('Sauce')),
-                ),
-            ],),
+                        child: const Text('Snaks')),
+                  ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                        child: TextButton(
+                          onPressed: (){}, 
+                          child: const Text('Sauce')),
+                  ),
+              ],),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -130,12 +133,17 @@ class _menu_foodState extends State<menu_food> {
               children: List.generate(list.length, (index) => 
                 InkWell(
                   onTap:() {
-                 
+                      Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const detile_food(),
+                              )
+                      );
                   },
                     child: Column(
                       children: [
                         Container(
-                          padding: EdgeInsets.only(top: 50),
+                          padding: const EdgeInsets.only(top: 50),
                           alignment: Alignment.topCenter,
                           width: 150,
                           height: 150,
@@ -149,10 +157,12 @@ class _menu_foodState extends State<menu_food> {
                         ),
                         Container(
                             alignment: Alignment.center,
-                            //padding: const EdgeInsets.only(bottom: 15),
                             height: 140,
                             width: 140,
-                            color: Color(0xFFEFEEEE),
+                            decoration: BoxDecoration(
+                              color: const Color(0xFFFFFFFF),
+                              borderRadius: BorderRadius.circular(20)
+                            ),
                             child: Stack(
                               children:[ 
                                 Padding(

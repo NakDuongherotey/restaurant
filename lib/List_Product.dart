@@ -12,4 +12,8 @@ class ProductModel {
   String? image;
   String? price;
   ProductModel({this.id, this.name, this.image,this.price});
+
+  toLowerCase() {}
+
+  
 }

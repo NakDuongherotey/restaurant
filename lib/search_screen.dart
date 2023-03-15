@@ -1,6 +1,8 @@
-// ignore_for_file: camel_case_types
+// ignore_for_file: camel_case_types, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+
+
 
 class Search_screen extends StatefulWidget {
   const Search_screen({super.key});
@@ -18,11 +20,18 @@ class _Search_screenState extends State<Search_screen> {
           color: Color(0xFF000000),
         ),
         backgroundColor:const Color(0xFFF5F5F8),
-        title: const TextField(                   //Text field for searching
-          decoration: InputDecoration(
-            hintText: ' Searching',
-          ),
-        ),
+        actions: [
+          IconButton(
+            onPressed: (){
+            //  showSearch(
+            //   context: context, 
+            //   delegate: search_screen()
+            //   );
+            }, 
+            icon: const Icon(
+              Icons.search,
+              color: Color(0xFF000000),))
+        ],
        ),
       body: Column(
         children: [

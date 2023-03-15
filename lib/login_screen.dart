@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant/Cart_screen.dart';
-import 'package:restaurant/Order.dart';
-import 'package:restaurant/history.dart';
-import 'package:restaurant/internet_message.dart';
-import 'package:restaurant/menu_food.dart';
+import 'package:restaurant/Profile_screen.dart';
 import 'package:restaurant/search_screen.dart';
 
 class login extends StatefulWidget {
@@ -114,7 +110,7 @@ class _loginState extends State<login> {
                     context, 
                     MaterialPageRoute(
                       builder: (context) => 
-                      const history_screen()//menu screen chang//history
+                      const Search_screen()//menu screen chang//history
                ),
                );
                }, 
