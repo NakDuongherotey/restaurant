@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:restaurant/my_offers.dart';
 
 class Order_screen extends StatefulWidget {
   const Order_screen({super.key});
@@ -38,35 +39,52 @@ class _Order_screenState extends State<Order_screen> {
             alignment: Alignment.bottomCenter,
             child: const Icon(
               Icons.shopping_cart_rounded,
-              size: 100,
+              size: 150,
               color: Color(0xFFC7C7C7),
               ),
           ),
           Container(
             height: 50,
-            width: double.infinity,
+            width: 250,
             alignment: Alignment.center,
-            child: const Text(
-              'No Orders Yet',
-              style: TextStyle(
-                fontSize: 30,
-                color: Color(0xFF000000),
+             child: const ListTile(
+                title: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text(
+                    'No Orders Yet',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 30,
+                      color: Color(0xFF000000)
+                    ),
+                  ),
+                ),
+                subtitle: Text(
+                  'Hit the orange button down below to crate orde',
+                  textAlign: TextAlign.center,),
               ),
-            ),
-          ),
-          Container(
-            height: 50,
-            width: 200,
-            alignment: Alignment.center,
-            child: const Text(
-              'Hit the orange button down below to Crate order',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 15,
-                color: Color(0xFF000000),
-              ),
-            ),
-          ),
+             ),
+             //const Text(
+            //   'No Orders Yet',
+            //   style: TextStyle(
+            //     fontSize: 30,
+            //     color: Color(0xFF000000),
+            //   ),
+            // ),
+          //),
+          // Container(
+          //   height: 50,
+          //   width: 200,
+          //   alignment: Alignment.center,
+          //   child: const Text(
+          //     'Hit the orange button down below to Crate order',
+          //     textAlign: TextAlign.center,
+          //     style: TextStyle(
+          //       fontSize: 15,
+          //       color: Color(0xFF000000),
+          //     ),
+          //   ),
+          // ),
           Padding(
              padding: const EdgeInsets.only(top: 150),
              child: Container(
@@ -80,7 +98,14 @@ class _Order_screenState extends State<Order_screen> {
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: TextButton(
-                    onPressed: (){}, 
+                    onPressed: (){
+                      Navigator.push(
+                        context, MaterialPageRoute(
+                          builder: (context) =>
+                          const  My_offer()
+                          )
+                          );
+                    }, 
                   child: const Text(
                     'Start Ordering',
                     style: TextStyle(

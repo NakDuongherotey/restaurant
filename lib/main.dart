@@ -40,20 +40,22 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: Colors.red,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.only(top: 50),
             child: Container(
-              height: 60,
-              width: 60,
+              //padding: const EdgeInsets.only(right: 200),
+             // alignment: Alignment.centerLeft,
+              height: 80,
+              width: 80,
               margin: const EdgeInsets.all(20.0),
               decoration: const BoxDecoration(
                 color: Colors.white,
                 shape: BoxShape.circle,
                 image: DecorationImage(
                   image: AssetImage('assets/photo/images.png'),
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fill,
                 ),
               ),
             ),
@@ -74,20 +76,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Colors.white),
             ),
           ),
-          Container(
-            height: 200,
-            width: 200,
-            alignment: Alignment.center,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/photo/chef.png'),
-                fit: BoxFit.cover)
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              padding: const EdgeInsets.only(right: 150),
+              height: 200,
+              width: 200,
+              alignment: Alignment.center,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/photo/chef1.png'),
+                  fit: BoxFit.cover)
+              ),
             ),
           ),
            Padding(
              padding: const EdgeInsets.only(top: 150),
              child: Container(
-                alignment: Alignment.bottomCenter,
+                alignment: Alignment.center,
                 height: 60,
                 width: 300,
                 decoration: BoxDecoration(

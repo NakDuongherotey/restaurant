@@ -1,7 +1,7 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'package:flutter/material.dart';
-import 'package:restaurant/checkout_delivery.dart';
+import 'package:restaurant/message_dialog.dart';
 
 class checkout_screen extends StatefulWidget {
   const checkout_screen({super.key});
@@ -215,14 +215,8 @@ class _checkout_screenState extends State<checkout_screen> {
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 8),
                   child: TextButton(
-                    onPressed: (){
-                      Navigator.push(
-                    context, 
-                    MaterialPageRoute(
-                      builder: (context) => 
-                      const checkout_delivery()
-               ),
-               );
+                    onPressed: ()async{
+                     final Future<ConfirmAction?> action = await _asyncConfirmDialog(context);     
                     }, 
                   child: const Text(
                     'Proceed to Payment',
@@ -239,3 +233,53 @@ class _checkout_screenState extends State<checkout_screen> {
     );
   }
 }
+enum ConfirmAction { Cancel, Accept}  
+Future<Future<ConfirmAction?>> _asyncConfirmDialog(BuildContext context) async {  
+  return showDialog<ConfirmAction>(  
+    context: context,  
+    barrierDismissible: false, // user must tap button for close dialog!  
+    builder: (BuildContext context) {  
+      return AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30)
+        ),
+        title: Container(
+        child: Column(
+          children:const [
+            ListTile(
+              title: Text(
+                'Please note',
+                style: TextStyle(fontSize: 20),),
+            ),
+            Divider(
+              height: 10,
+            ),
+            ListTile(
+              title:Text('GHS 2 - GH 3'),
+              subtitle: Text('DELIVERY TO TRASACO'),
+            ),
+            ListTile(
+              title: Text('GHS 1'),
+              subtitle: Text('DELIVERY TO CAMPUS'),
+            )
+          ],
+        ),
+      ),
+      actions: [
+        TextButton(
+          onPressed: (){ 
+            Navigator.of(context).pop(ConfirmAction.Cancel);  
+          }, 
+          child: Text('cancel')
+          ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: TextButton(
+            onPressed: (){}, 
+            child: Text('Proceed')),
+        )
+      ],
+    );
+    },  
+  );  
+}  

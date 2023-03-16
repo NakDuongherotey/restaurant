@@ -1,6 +1,7 @@
 // ignore_for_file: camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:restaurant/Order.dart';
 import 'package:restaurant/list_button/list_button.dart';
 import 'List_Product.dart';
 
@@ -153,10 +154,16 @@ class _profile_detaileState extends State<profile_detaile> {
            // alignment: Alignment.center,
             child: ListView(
               scrollDirection: Axis.vertical, 
-              children: List.generate(list.length, (index)=>
+              children: List.generate(List_button.length,(index)=>
                  InkWell(
                   onTap:() {
-                    
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                      builder: (context) => 
+                     const Order_screen()
+                )
+              );
                   },
                  child: Padding(
                    padding: const EdgeInsets.all(8.0),

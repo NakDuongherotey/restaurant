@@ -66,7 +66,7 @@ class _detile_foodState extends State<detile_food> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 40),
+            padding: const EdgeInsets.only(bottom: 20),
             child: Container(
               height: 50,
               width: double.infinity,
@@ -81,60 +81,38 @@ class _detile_foodState extends State<detile_food> {
             ),
           ),
           Container(
-            height: 80,
+            height: 200,
             width: 300,
             alignment: Alignment.center,
             child:Column(
-              children: const[
-                 Padding(
-                   padding: EdgeInsets.only(right: 190),
-                   child: Text(
-                    'Delivery info',
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Color(0xFF000000),
-                    ),
-                    ),
-                 ),
-                  Text(
-                    'Delivered between monday aug and thursday 20 from 8pm to 9:32 pm',
-                    style: TextStyle(
-                    fontSize: 15,
-                    color: Color(0xFFC4C4C4),
-                  ),
-                  ),
-              ],
-            )
-          ),
-          Container(
-            height: 100,
-            width: 300,
-            alignment: Alignment.bottomCenter,
-            child:Column(
-              children: const[
-                 Padding(
-                   padding: EdgeInsets.only(right: 180),
-                   child: Text(
-                    'Return policy',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Color(0xFF000000),
-                    )
-                    ),
-                 ),
-                  Text(
-                  'All our foods are double checked before leaving our stores so by any case you found a broken food please contact out hotline immediately.',
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Color(0xFFC4C4C4),
-                  )
-                  ),
-              ],
+              children: const [
+                ListTile(
+                  title: Text(
+                      'Delivery info',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Color(0xFF000000),
+                      ),
+                      ),
+                  subtitle: Text('Delivered between monday aug and thursday 20 from 8pm to 9:32 pm'),
+                ),
+                ListTile(
+                  title: Text(
+                      'Return policy',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Color(0xFF000000),
+                      ),
+                      ),
+                  subtitle: Text('All our foods are double checked before leaving our stores so by any case you found a broken food please contact out hotline immediately.'),
+                ),
+              ]
             )
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 20),
+            padding: const EdgeInsets.only(top: 10),
             child: Container(
                   alignment: Alignment.bottomCenter,
                   height: 60,
