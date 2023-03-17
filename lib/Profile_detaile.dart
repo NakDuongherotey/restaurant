@@ -1,6 +1,10 @@
-// ignore_for_file: camel_case_types
+
+
+import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:restaurant/Order.dart';
 import 'package:restaurant/list_button/list_button.dart';
 import 'List_Product.dart';
@@ -13,6 +17,23 @@ class profile_detaile extends StatefulWidget {
 }
 
 class _profile_detaileState extends State<profile_detaile> {
+   
+    File? selectimage;
+    String image64 = "";
+    Future<void> chooseImage(Type) async {
+      var image;
+      if(Type == "camera"){
+        image = await ImagePicker().pickImage(source: ImageSource.camera, imageQuality: 10);
+      }else{
+        image = await ImagePicker().pickImage(source: ImageSource.gallery, imageQuality: 25);
+      }
+      if(image != null){
+        setState(() {
+          selectimage = File(image.path);
+          image64 = base64Encode(selectimage!.readAsBytesSync());
+        });
+      }
+    }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,19 +106,52 @@ class _profile_detaileState extends State<profile_detaile> {
               ),
               child: Row(
                 children: [
-                  Container(
-                    padding: const EdgeInsets.only(bottom: 50),
-                    //alignment: Alignment.topLeft,
-                    height: 100,
-                    width: 100,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFFFFFFF),
-                      borderRadius: BorderRadius.circular(20),
-                      image:const DecorationImage(
-                        image: AssetImage('assets/photo/profile.png'),
-                        fit: BoxFit.cover,
-                        )
-                    ),
+                  Stack(
+                    children: [
+                      CircleAvatar(
+                        radius: 30,
+                        child: ClipOval(
+                          child: selectimage != null
+                          ? Image.file(
+                            selectimage!,
+                            fit: BoxFit.cover,
+                            height: 200,
+                            width: 200,
+                          )
+                          : Image.network(
+                            'https://www.google.com/url?sa=i&url=https%3A%2F%2Fpixabay.com%2Fvectors%2Fblank-profile-picture-mystery-man-973460%2F&psig=AOvVaw1L98PDgklJBTeysqJVhjEn&ust=1679109787314000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCNDt0sSB4v0CFQAAAAAdAAAAABAE',
+                            fit: BoxFit.cover,
+                            width: 200,
+                            height: 200,)
+                        ),
+                      ),
+                    //   Container(
+                    //   padding: const EdgeInsets.only(bottom: 50),
+                    //   //alignment: Alignment.topLeft,
+                    //   height: 100,
+                    //   width: 100,
+                    //   decoration: BoxDecoration(
+                    //     color: const Color(0xFFFFFFFF),
+                    //     borderRadius: BorderRadius.circular(20),
+                    //     image:DecorationImage(
+                    //       image:_imagefile==null? AssetImage("assets/photo/profile.png"):FileImage(File()),
+                    //       fit: BoxFit.cover,
+                    //       )
+                    //   ),
+                    // ),
+                    Positioned(
+                      bottom: 10,
+                      right: 10,
+                      child: InkWell(
+                        onTap:() {
+                          chooseImage('Camera');
+                        },
+                        child: const Icon(Icons.camera_alt,
+                        color: Color(0xFF000000),
+                        size: 20,),
+                      )
+                    )
+                   ]
                   ),
                   Expanded(
                     child: Container(

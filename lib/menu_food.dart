@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:restaurant/Order.dart';
 import 'package:restaurant/Order_complete.dart';
 import 'package:restaurant/Profile_screen.dart';
+import 'package:restaurant/checkout_payment.dart';
 import 'package:restaurant/detile_food.dart';
 import 'package:restaurant/history.dart';
 import 'package:restaurant/list_button/icon_drawer.dart';
+import 'package:restaurant/search_screen.dart';
 import 'List_Product.dart';
 
 class menu_food extends StatefulWidget {
@@ -42,46 +44,42 @@ class _menu_foodState extends State<menu_food> {
         ),
       drawer: Drawer(
         backgroundColor: Color(0xFFFA4A0C),
-        child: Column(
-          children: [
-            Container(
-              child: ListView(
-                children: List.generate(list_icon.length, (index) =>
-                InkWell(
-                  onTap: () {
-                    
-                  },
-                child: Container(
-                  child: Expanded(
-                    child: Row(
-                      children: [
-                        IconButton(
-                          onPressed: (){
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => 
-                                const Order_screen()
-                              )
-                            ); 
-                          }, 
-                          icon: Icon(
-                            list_icon[index].icon,
-                            color:const Color(0xFFFFFFFF),
-                          )),
-                        Text(
-                          list_icon[index].title.toString(),
-                          style: const TextStyle(color: Color(0xFFFFFFFF)),
-                        )
-                      ],
-                    ),
-                  ),
+        child: Container(
+          child: ListView(
+            children: List.generate(list_icon.length, (index) =>
+            InkWell(
+              onTap: () {
+                
+              },
+            child: Container(
+              child: Expanded(
+                child: Row(
+                  children: [
+                    IconButton(
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => 
+                            const Order_screen()
+                          )
+                        ); 
+                      }, 
+                      icon: Icon(
+                        list_icon[index].icon,
+                        color:const Color(0xFFFFFFFF),
+                      )),
+                    Text(
+                      list_icon[index].title.toString(),
+                      style: const TextStyle(color: Color(0xFFFFFFFF)),
+                    )
+                  ],
                 ),
-                )
-                )
               ),
             ),
-          ],
+            )
+            )
+          ),
         ),
       ),
       backgroundColor: const Color(0xFFF2F2F2),
@@ -123,13 +121,29 @@ class _menu_foodState extends State<menu_food> {
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: TextButton(
-                      onPressed: (){}, 
+                      onPressed: (){
+                        Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => 
+                          const Search_screen()
+                        )
+                      );
+                      }, 
                       child: const Text('Foods')),
                   ),
                    Padding(
                      padding: const EdgeInsets.all(10.0),
                      child: TextButton(
-                      onPressed: (){}, 
+                      onPressed: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                          builder: (context) => 
+                          const checkout_screen(),
+                        )
+                      );
+                      }, 
                       child: const Text('Drirks')),
                   ),
                   Padding(

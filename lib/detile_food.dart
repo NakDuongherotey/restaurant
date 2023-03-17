@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:restaurant/Cart_screen.dart';
 
 class detile_food extends StatefulWidget {
   const detile_food({super.key});
@@ -129,7 +130,7 @@ class _detile_foodState extends State<detile_food> {
                       context, 
                       MaterialPageRoute(
                         builder: (context) => 
-                        const detile_food()//menu screen chang//history
+                        const Cart_screen()//menu screen chang//history
                  ),
                  );
                  }, 

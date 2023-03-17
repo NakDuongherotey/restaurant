@@ -1,7 +1,8 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'package:flutter/material.dart';
-import 'package:restaurant/message_dialog.dart';
+import 'package:restaurant/checkout_delivery.dart';
+import 'package:restaurant/sign_up.dart';
 
 class checkout_screen extends StatefulWidget {
   const checkout_screen({super.key});
@@ -275,7 +276,15 @@ Future<Future<ConfirmAction?>> _asyncConfirmDialog(BuildContext context) async {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: TextButton(
-            onPressed: (){}, 
+            onPressed: (){
+               Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => 
+                          const checkout_delivery()
+                        )
+                      );
+            }, 
             child: Text('Proceed')),
         )
       ],

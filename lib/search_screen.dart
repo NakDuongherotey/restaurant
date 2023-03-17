@@ -1,6 +1,7 @@
 // ignore_for_file: camel_case_types, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:restaurant/search_food.dart';
 
 
 
@@ -23,10 +24,10 @@ class _Search_screenState extends State<Search_screen> {
         actions: [
           IconButton(
             onPressed: (){
-            //  showSearch(
-            //   context: context, 
-            //   delegate: search_screen()
-            //   );
+            Navigator.push(
+              context, 
+              MaterialPageRoute(
+                builder: (context)=> search_screen()));
             }, 
             icon: const Icon(
               Icons.search,

@@ -35,7 +35,6 @@ class My_offer extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 200),
             child: Container(
-             // padding: EdgeInsets.only(bottom: 150),
               height: 50,
               width: double.infinity,
               alignment: Alignment.center,
