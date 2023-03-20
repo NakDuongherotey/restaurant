@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:restaurant/Order.dart';
 import 'package:restaurant/list_button/list_button.dart';
-import 'List_Product.dart';
+import 'list_button/List_Product.dart';
 
 class profile_detaile extends StatefulWidget {
   const profile_detaile({super.key});
@@ -17,7 +17,9 @@ class profile_detaile extends StatefulWidget {
 }
 
 class _profile_detaileState extends State<profile_detaile> {
-   
+   final controller = TextEditingController();
+ 
+  bool isDisabled = true;
     File? selectimage;
     String image64 = "";
     Future<void> chooseImage(Type) async {
@@ -71,8 +73,8 @@ class _profile_detaileState extends State<profile_detaile> {
               width: double.infinity,
               alignment: Alignment.centerLeft,
               child: Row(
-                children: const [
-                  Padding(
+                children:  [
+                  const Padding(
                     padding: EdgeInsets.only(left: 10),
                     child: Text(
                       'Personal details',
@@ -83,15 +85,18 @@ class _profile_detaileState extends State<profile_detaile> {
                       ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 150),
-                    child: Text(
+                    padding: const EdgeInsets.only(left: 120),
+                    child: TextButton(
+                      onPressed: (){
+                        setState(() {
+                          isDisabled = false;
+                        });
+                      },
+                     child: const Text(
                       'change',
-                      style: TextStyle(
-                      fontSize: 15,
-                      color: Color(0xFFF47B0A)),
-                      textAlign: TextAlign.start,
-                      ),
-                  ),
+                      style: TextStyle(color: Color(0xFFFA4A0C)),
+                      )),
+                  )
                 ],
               ),
             ),
@@ -125,20 +130,6 @@ class _profile_detaileState extends State<profile_detaile> {
                             height: 200,)
                         ),
                       ),
-                    //   Container(
-                    //   padding: const EdgeInsets.only(bottom: 50),
-                    //   //alignment: Alignment.topLeft,
-                    //   height: 100,
-                    //   width: 100,
-                    //   decoration: BoxDecoration(
-                    //     color: const Color(0xFFFFFFFF),
-                    //     borderRadius: BorderRadius.circular(20),
-                    //     image:DecorationImage(
-                    //       image:_imagefile==null? AssetImage("assets/photo/profile.png"):FileImage(File()),
-                    //       fit: BoxFit.cover,
-                    //       )
-                    //   ),
-                    // ),
                     Positioned(
                       bottom: 10,
                       right: 10,
@@ -157,11 +148,11 @@ class _profile_detaileState extends State<profile_detaile> {
                     child: Container(
                       height:200,
                       width: 250,
-                      child: Expanded(
-                        child: Column(
-                          children: const[
-                             ListTile(
-                              subtitle: Text('thelma_sara-bear@gmail.com'),
+                      child: Column(
+                        children: [
+                           const SizedBox(
+                            height: 30,
+                             child: ListTile(
                               title: Text(
                                 'Thelma Sara-bear',
                                 style: TextStyle(
@@ -169,33 +160,39 @@ class _profile_detaileState extends State<profile_detaile> {
                                 color: Color(0xFF000000)),
                                 textAlign: TextAlign.start,
                                 ),
+                                                     ),
+                           ),
+                          SizedBox(
+                            height: 50,
+                            width: 240,
+                            child: TextField(
+                              enabled: !isDisabled,
+                              decoration: const InputDecoration(
+                                labelText: 'thelma_sara-bear@gmail.com',
+                              ),
                             ),
-                            Divider(
-                              height: 1,
+                          ),
+                          SizedBox(
+                            height: 50,
+                            width: 240,
+                            child: TextField(
+                              enabled: !isDisabled,
+                              decoration: const InputDecoration(
+                                labelText: '+233 54138989 ',
+                              ),
                             ),
-                            ListTile(
-                              title: Text(
-                                '+233 5413 8989',
-                                style: TextStyle(
-                                fontSize: 15,
-                                color: Color(0xFF000000)),
-                                textAlign: TextAlign.start,
-                                ),
+                          ),
+                          SizedBox(
+                            height: 50,
+                            width: 240,
+                            child: TextField(
+                              enabled: !isDisabled,
+                              decoration: const InputDecoration(
+                                 labelText: 'Trasaco hotel, behaind nabrongo campus',
+                              ),
                             ),
-                            Divider(
-                              height: 1,
-                            ),
-                            ListTile(
-                              title: Text(
-                                'Trasaco hotel, berhind navrongo campus',
-                                style: TextStyle(
-                                fontSize: 15,
-                                color: Color(0xFF000000)),
-                                textAlign: TextAlign.start,
-                                ),
-                            )
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -256,28 +253,31 @@ class _profile_detaileState extends State<profile_detaile> {
                  )
             ),
           ),
-          Container(
-             alignment: Alignment.bottomCenter,
-             height: 60,
-             width: 300,
-             decoration: BoxDecoration(
-               color: const Color(0xFFFA4A0C),
-               borderRadius: BorderRadius.circular(50)
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container( 
+               alignment: Alignment.bottomCenter,
+               height: 60,
+               width: 300,
+               decoration: BoxDecoration(
+                 color: const Color(0xFFFA4A0C),
+                 borderRadius: BorderRadius.circular(50)
+                 ),
+               child: Padding(
+                 padding: const EdgeInsets.only(bottom: 8),
+                 child: TextButton(
+                   onPressed: (){
+                   }, 
+                 child: const Text(
+                   'Update',
+                   style: TextStyle(
+                     fontSize: 15,
+                     color: Color(0xFFF6F6F9)),
+                     )
+                     ),
                ),
-             child: Padding(
-               padding: const EdgeInsets.only(bottom: 8),
-               child: TextButton(
-                 onPressed: (){
-                 }, 
-               child: const Text(
-                 'Update',
-                 style: TextStyle(
-                   fontSize: 15,
-                   color: Color(0xFFF6F6F9)),
-                   )
-                   ),
              ),
-           ),
+          ),
         ],
       ),
     );

@@ -62,31 +62,46 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           const ListTile(
             title: Text(
-              ' CALEB G',
+              ' CALEB G\nRestaurant',
               style: TextStyle(
                 fontSize: 40,
                 color: Colors.white),
               ),
           ),
-          const ListTile(
-            title: Text(
-              'Restaurant',
-              style: TextStyle(
-                fontSize: 40,
-                color: Colors.white),
-            ),
-          ),
+          
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-              padding: const EdgeInsets.only(right: 150),
               height: 200,
-              width: 200,
-              alignment: Alignment.center,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/photo/chef1.png'),
-                  fit: BoxFit.cover)
+              width: 400,
+              child: Row(
+                children: [
+                  Container(
+                    height: 150,
+                    width: 150,
+                    alignment: Alignment.center,
+                    transform: Matrix4.skewX(0.2),
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/photo/chef1.png'),
+                        fit: BoxFit.cover)
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 60),
+                    child: Container(
+                      height: 150,
+                      width: 150,
+                      alignment: Alignment.center,
+                      transform: Matrix4.skewX(0.1),
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/photo/chef2.png'),
+                          fit: BoxFit.cover)
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

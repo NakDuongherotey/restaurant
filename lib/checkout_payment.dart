@@ -10,13 +10,13 @@ class checkout_screen extends StatefulWidget {
   @override
   State<checkout_screen> createState() => _checkout_screenState();
 }
-enum radio { payment, delivery }
-enum die { door, pickup }
+
 class _checkout_screenState extends State<checkout_screen> {
+  String? select;
+  String? choose;
   @override
   Widget build(BuildContext context) {
-    radio? _character = radio.payment;
-    die? _cher = die.door;
+    
     return Scaffold(
       appBar: AppBar(
         leading: const BackButton(
@@ -83,34 +83,24 @@ class _checkout_screenState extends State<checkout_screen> {
               child: Expanded(
                 child: Column(
                   children:  [
-                    ListTile(
+                   RadioListTile(
                       title: const Text('Card'),
-                      leading: Radio<radio>(
-                        value: radio.payment,
-                        groupValue: _character,
-                        onChanged: (radio? value) {
-                          setState(() {
-                            _character = value;
-                          });
-                        },
-                      ),
-                    ),
-                    const Divider(
-                      height: 20,
-                    ),
-                    ListTile(
-                      title: const Text('Mobile Money (MTN,VODA)'),
-                      
-                      leading: Radio<radio>(
-                        value: radio.delivery,
-                        groupValue: _character,
-                        onChanged: (radio? value) {
-                          setState(() {
-                            _character = value;
-                          });
-                        },
-                      ),
-                    ),
+                      value: 'card', 
+                      groupValue: choose, 
+                      onChanged: (value){
+                        setState(() {
+                          choose = value.toString();
+                        });
+                      }),
+                    RadioListTile(
+                      title:const Text('Mobile Money(MTN,VODA)'),
+                      value: 'mobile', 
+                      groupValue: choose, 
+                      onChanged: (value){
+                        setState(() {
+                          choose = value.toString();
+                        });
+                      })
                   ],
                 ),
               ),
@@ -146,33 +136,24 @@ class _checkout_screenState extends State<checkout_screen> {
               child: Expanded(
                 child: Column(
                   children:  [
-                    ListTile(
-                      title: const Text('Door delivery'),
-                      leading: Radio<die>(
-                        value: die.door,
-                        groupValue: _cher,
-                        onChanged: (die? value) {
-                          setState(() {
-                            _cher = value;
-                          });
-                        },
-                      ),
-                    ),
-                    const Divider(
-                      height: 20,
-                    ),
-                    ListTile(
-                      title: const Text('Pick up'),
-                      leading: Radio<die>(
-                        value: die.pickup,
-                        groupValue: _cher,
-                        onChanged: (die? value) {
-                          setState(() {
-                            _cher = value;
-                          });
-                        },
-                      ),
-                    ),
+                   RadioListTile(
+                      title: const Text('Door dlivery'),
+                      value: 'door', 
+                      groupValue: select, 
+                      onChanged: (value){
+                        setState(() {
+                          select = value.toString();
+                        });
+                      }),
+                    RadioListTile(
+                      title:const Text('Pick up'),
+                      value: 'pickup', 
+                      groupValue: select, 
+                      onChanged: (value){
+                        setState(() {
+                          select = value.toString();
+                        });
+                      })
                   ],
                 ),
               ),
@@ -285,7 +266,9 @@ Future<Future<ConfirmAction?>> _asyncConfirmDialog(BuildContext context) async {
                         )
                       );
             }, 
-            child: Text('Proceed')),
+            child: Text(
+              'Proceed',
+              style: TextStyle(color: Color(0xFFFA4A0C)),)),
         )
       ],
     );

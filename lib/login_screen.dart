@@ -20,10 +20,9 @@ class _loginState extends State<login> {
     return MaterialApp(
       home: DefaultTabController(length: 2, 
       child: Scaffold(
-        //backgroundColor: const Color(0xFFFFFFFF),
         body: Column(
           children: [
-            Container(
+            Container(                                  // Image logo
               height: 300,
               width: 400,
               decoration: BoxDecoration(
@@ -39,7 +38,7 @@ class _loginState extends State<login> {
                       image: AssetImage('assets/photo/images.png')
                       ),
                   ),
-                  const Padding(
+                  const Padding(                            // Button Tabar 
                     padding: EdgeInsets.only(top: 12),
                     child: TabBar(tabs: [
                       Tab(text: 'sigin',),
@@ -55,14 +54,13 @@ class _loginState extends State<login> {
             const SizedBox(
               height: 10,
             ),
-            // ignore: sized_box_for_whitespace
-            Container(
+            const SizedBox(
               height: 470,
               width: double.infinity,
-              child: const TabBarView(
+              child: TabBarView(
                 children: [
-                  sigin(),
-                  sign_up(),
+                  sigin(),                             // login screen 
+                  sign_up(),                            // sign_up screen
               ]),
             ),
           ],

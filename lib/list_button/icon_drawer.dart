@@ -13,4 +13,5 @@ List<icon_drawer>list_icon = [
   icon_drawer(icon: Icons.local_offer, title: ' pffer and promo', color: 0xFFFFFFFF),
   icon_drawer(icon: Icons.sticky_note_2,title: ' Privacy policy', color: 0xFFFFFFFF),
   icon_drawer(icon: Icons.security, title: ' Security', color: 0xFFFFFFFF),
+  icon_drawer(icon: Icons.logout, title: ' Sign-out', color: 0xFFFFFFFF),
 ];

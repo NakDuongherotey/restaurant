@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:restaurant/Cart_screen.dart';
+import 'package:restaurant/menu_food.dart';
 
 class detile_food extends StatefulWidget {
   const detile_food({super.key});
@@ -18,8 +19,15 @@ class _detile_foodState extends State<detile_food> {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: const Color(0xFFF5F5F8),
-        leading:const BackButton(
-          color: Color(0xFF000000),
+        leading: BackButton(
+          color: const Color(0xFF000000),
+          onPressed: ()  {
+            Navigator.push(
+              context, MaterialPageRoute(
+                builder: (context)=> const menu_food()
+              )
+            );
+          }
         ),
         actions: [
           IconButton(

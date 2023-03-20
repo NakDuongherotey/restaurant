@@ -20,7 +20,7 @@ class sigin extends StatelessWidget {
                 children: [
                   const Padding(
                       padding: EdgeInsets.all(8.0),
-                          child: TextField(
+                          child: TextField(                             // text field for input email address
                             decoration: InputDecoration(
                               label:Text('Email Address'),
                               hintText: 'Enter Your Address'
@@ -29,7 +29,7 @@ class sigin extends StatelessWidget {
                   ),
                   const Padding(
                     padding: EdgeInsets.all(8.0),
-                        child: TextField(
+                        child: TextField(                               // text field for input password
                           obscureText: true,
                           decoration: InputDecoration(
                               label: Text('Password'),
@@ -53,7 +53,7 @@ class sigin extends StatelessWidget {
                   Padding(
                   padding: const EdgeInsets.only(top: 150),
                   child: Container(
-                      alignment: Alignment.bottomCenter,
+                      alignment: Alignment.bottomCenter,                  //buuto login and push to screen Menu food 
                       height: 60,
                       width: 300,
                       decoration: BoxDecoration(
@@ -64,21 +64,21 @@ class sigin extends StatelessWidget {
                         padding: const EdgeInsets.only(bottom: 10),
                         child: TextButton(
                           onPressed: (){
-                        Navigator.push(
-                          context, 
-                          MaterialPageRoute(
-                            builder: (context) => 
-                           const menu_food()//menu screen chang//history
-                    ),
-                    );
-                    }, 
-                        child: const Text(
-                          'login',
-                          style: TextStyle(
-                            fontSize: 15,
-                            color: Color(0xFFF6F6F9)),
-                            )
-                            ),
+                            Navigator.push(
+                              context, 
+                              MaterialPageRoute(
+                                builder: (context) => 
+                                const menu_food()                            //menu screen 
+                              ),
+                            );
+                          }, 
+                          child: const Text(
+                            'login',
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Color(0xFFF6F6F9)),
+                          )
+                        ),
                       ),
                     ),
                 ),

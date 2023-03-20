@@ -63,7 +63,9 @@ class _Message_internet_screenState extends State<Message_internet_screen> {
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 14),
                 child: TextButton(
-                  onPressed: (){}, 
+                  onPressed: (){
+                    Navigator.pop(context);
+                  }, 
                 child: Text(
                   'Try again',
                   style: TextStyle(

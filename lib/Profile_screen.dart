@@ -9,6 +9,7 @@ class Profile_screen extends StatefulWidget {
 }
 
 class _Profile_screenState extends State<Profile_screen> {
+  String? option;
   @override
   Widget build(BuildContext context) {
    String _character = 'card';
@@ -129,48 +130,33 @@ class _Profile_screenState extends State<Profile_screen> {
               child: Expanded(
                 child: Column(
                   children:  <Widget>[
-                    ListTile(
+                    RadioListTile(
                       title: const Text('Card'),
-                      leading: Radio<String>(
-                        value: 'card',
-                        groupValue: _character,
-                        onChanged: (value) {
-                          setState(() {
-                            _character = value!;
-                          });
-                        },
-                      ),
-                    ),
-                    const Divider(
-                      height: 10,
-                    ),
-                    ListTile(
-                      title: const Text('Mobile Money (MTN,VODA)'),
-                      leading: Radio<String>(
-                        value: 'delivery',
-                        groupValue: _character,
-                        onChanged: ( value) {
-                          setState(() {
-                            _character = value!;
-                          });
-                        },
-                      ),
-                    ),
-                    const Divider(
-                      height: 10,
-                    ),
-                    ListTile(
-                      title: const Text('Pay on delivery'),
-                      leading: Radio<String>(
-                        value: 'pay',
-                        groupValue: _character,
-                        onChanged: (value) {
-                          setState(() {
-                            _character = value!;
-                          });
-                        },
-                      ),
-                    ),
+                      value: 'card', 
+                      groupValue: option, 
+                      onChanged: (value){
+                        setState(() {
+                          option = value.toString();
+                        });
+                      }),
+                    RadioListTile(
+                      title:const Text('Mobile Money(MTN,VODA)'),
+                      value: 'mobile', 
+                      groupValue: option, 
+                      onChanged: (value){
+                        setState(() {
+                          option = value.toString();
+                        });
+                      }),
+                      RadioListTile(
+                      title:const Text('Pay on delivery'),
+                      value: 'pay', 
+                      groupValue: option, 
+                      onChanged: (value){
+                        setState(() {
+                          option = value.toString();
+                        });
+                      })
                   ],
                 ),
               ),

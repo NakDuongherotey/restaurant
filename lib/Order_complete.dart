@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'menu_food.dart';
+
 class Order_complete extends StatelessWidget {
   const Order_complete({super.key});
 
@@ -8,8 +10,14 @@ class Order_complete extends StatelessWidget {
     return Scaffold(
       appBar:AppBar(
         backgroundColor: const Color(0xFFFFFFFF),
-        leading: const BackButton(
+        leading: BackButton(
           color: Color(0xFF000000),
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(
+              builder: (context) =>
+              const menu_food()
+            ));
+          },
         ),
       ),
       body:Column(
